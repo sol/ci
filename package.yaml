@@ -1,0 +1,30 @@
+name: ci
+license: MIT
+copyright: (c) 2018 Simon Hengel
+author: Simon Hengel <sol@typeful.net>
+maintainer: Simon Hengel <sol@typeful.net>
+
+ghc-options: -Wall
+
+dependencies:
+  - base == 4.*
+  - yaml
+  - bytestring
+  - aeson
+  - text
+
+library:
+  source-dirs: src
+
+executable:
+  main: driver/Main.hs
+  dependencies: ci
+
+tests:
+  spec:
+    main: Spec.hs
+    source-dirs: test
+    dependencies:
+      - ci
+      - interpolate
+      - hspec == 2.*

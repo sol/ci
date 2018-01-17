@@ -1,0 +1,71 @@
+-- This file has been generated from package.yaml by hpack version 0.21.2.
+--
+-- see: https://github.com/sol/hpack
+--
+-- hash: 278af874477ef918d7a15d705fc9ef9b166eaa6ba6f6672a2a3354b1d5b30c4f
+
+name:           ci
+version:        0.0.0
+author:         Simon Hengel <sol@typeful.net>
+maintainer:     Simon Hengel <sol@typeful.net>
+copyright:      (c) 2018 Simon Hengel
+license:        MIT
+license-file:   LICENSE
+build-type:     Simple
+cabal-version:  >= 1.10
+
+library
+  exposed-modules:
+      Config
+      Config.Syntax
+      GenericsUtil
+      Run
+      Travis
+      Travis.Syntax
+  other-modules:
+      Paths_ci
+  hs-source-dirs:
+      src
+  ghc-options: -Wall
+  build-depends:
+      aeson
+    , base ==4.*
+    , bytestring
+    , text
+    , yaml
+  default-language: Haskell2010
+
+executable ci
+  main-is: driver/Main.hs
+  other-modules:
+      Paths_ci
+  ghc-options: -Wall
+  build-depends:
+      aeson
+    , base ==4.*
+    , bytestring
+    , ci
+    , text
+    , yaml
+  default-language: Haskell2010
+
+test-suite spec
+  type: exitcode-stdio-1.0
+  main-is: Spec.hs
+  other-modules:
+      ConfigSpec
+      RunSpec
+      Paths_ci
+  hs-source-dirs:
+      test
+  ghc-options: -Wall
+  build-depends:
+      aeson
+    , base ==4.*
+    , bytestring
+    , ci
+    , hspec ==2.*
+    , interpolate
+    , text
+    , yaml
+  default-language: Haskell2010
