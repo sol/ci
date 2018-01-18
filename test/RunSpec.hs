@@ -23,7 +23,8 @@ spec = do
         language: generic
         matrix:
           include:
-          - env: GHC_VERSION=7.10.3 CABAL_VERSION=1.22
+          - compiler: GHC 7.10.3
+            env: GHC_VERSION=7.10.3 CABAL_VERSION=1.22
             addons:
               apt:
                 packages:

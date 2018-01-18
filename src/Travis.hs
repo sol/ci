@@ -50,7 +50,8 @@ mkMatrix = Matrix . map mkInclude
 
 mkInclude :: CI.Compiler -> Include
 mkInclude (CI.Compiler (showVersion -> ghc) (showVersion -> cabal)) = Include {
-    env = "GHC_VERSION=" ++ ghc ++ " CABAL_VERSION=" ++ cabal
+    compiler = "GHC " ++ ghc
+  , env = "GHC_VERSION=" ++ ghc ++ " CABAL_VERSION=" ++ cabal
   , addons = Addons {
       apt = Apt {
         packages = [

@@ -13,7 +13,8 @@ data Matrix = Matrix {
 } deriving (Eq, Show, Generic, ToJSON)
 
 data Include = Include {
-  env :: String
+  compiler :: String
+, env :: String
 , addons :: Addons
 } deriving (Eq, Show, Generic, ToJSON)
 
